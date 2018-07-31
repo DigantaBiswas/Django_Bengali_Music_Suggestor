@@ -1,0 +1,96 @@
+.navbar{
+  background-image: url(img/pppp.jpg);
+}
+.navbar .navbar-brand{
+  color: white;
+}
+.navbar .nav-item a{
+  color: white !important;
+}
+.dropdown-menu{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.dropdown-item:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.navbar form button{
+  color: white;
+  background-color: black;
+  border: 0;
+}
+.filterMusic{
+  box-sizing: content-box;
+  text-align: center;
+  border-radius: 5px;
+  padding: 6px;
+  color: white;
+  background-color: #D2527F;
+}
+.card{
+  margin-top: 3.2rem;
+  background-color: #f5d6ec;
+}
+.image img{
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100%;
+  width: 100%;
+  height: 363px;
+}
+#footerRow{
+  margin-top: 20px;
+  height:104px;
+  text-align: center;
+  background-color: #89729E;
+}
+#footerRow1{
+  padding: 5px;
+}
+#footerRow2
+{
+  padding: 35px;
+  color: white;
+}
+#gpt{
+  margin-top: 20px;
+  height:104px; text-align: center;
+  background-color: #89729E;
+}
+#pfooter{
+  margin: 0;
+  color: white;
+}
+@media (min-width: 1200px) {
+  .card{
+    height: 303px;
+  }
+}
+@media (max-width: 1200px) {
+  .card{
+     height: 252px;
+   }
+ }
+ @media (max-width: 1200px) {
+     .image img{
+       height: 350px;
+       width: 290px;
+     }
+ }
+ @media (max-width: 992px) {
+   .image img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+   }
+ }
+ @media (min-width: 992px) and (max-width: 1199.98px) {
+   .image img{
+     margin-top: 35px;
+     height: 350px;
+     width: 290px;
+   }
+ }

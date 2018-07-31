@@ -1,0 +1,260 @@
+{%extends "songs/base.html"%}
+{%load static%}
+{%block content%}
+
+
+    <!-- Finished Navigation Bar -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4><p id="welcome">W E L C O M E</p></h4>
+            <h5 class="text-center">Music is like a dream. One that I cannot hear.</h5>
+            <div class="welcomeImage">
+              <img src="{% static "songs/img/music.png" %}" class="img-fluid" alt="Responsive image" height="300px" width="300px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Body Content Of Page -->
+    <div class="container">
+      <div class="row">
+        <!-- Youtube Iframe -->
+        <div class="col-lg-6">
+          <div class="iiframe">
+            <p class="songName">{{random_song.title}}</p>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{random_song.youtube_url}}?autoplay=1" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <!-- Finished iframe here -->
+
+        <!-- Search Music Start -->
+        
+        <div class="col-lg-6">
+          <div class="modifyCard">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <div class="form-row">
+                    <div class="col-4">
+                      <form method="GET" action="/suggestion">
+                      
+                    </div>
+
+                    <div class="col-5">
+                      <div class="filterMusic">Filter Your Music</div>
+                    </div>
+                  </div>
+                </h5>
+                <div style="margin-top: 15px;">
+                  <!-- Musuic suggestion form start here -->
+                  
+                    <!-- row-1 for year -->
+                    <div class="form-row">
+                      <div class="col-2">
+                      </div>
+                      <div class="col-2">
+                        <label  class="cardLabel" for="year">Year:</label>
+                      </div>
+                      <div class="col-2">
+                        <input type="text" class="form-control" placeholder="From" name="from_date" value="{{request.GET.from_date}}">
+                      </div>
+                      <div class="col-1">
+                        <p class="cardArrow">_</p>
+                      </div>
+                      <div class="col-2">
+                        <input type="text" class="form-control" placeholder="To" name="to_date" value="{{request.GET.to_date}}">
+                      </div>
+                      <div class="col-3">
+                      </div>
+                      </div>
+                      <!-- row-2 for Artist  -->
+                      <div class="form-row">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-2">
+                          <label class="cardLabel">Artist:</label>
+                        </div>
+                        <div class="col-5">
+                          <input type="text" class="form-control" placeholder="Artist Name" name="artist" value="{{request.GET.artist}}">
+                        </div>
+                      </div>
+                      <!-- row-3 for genre -->
+                      <div class="form-row">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-5">
+                          <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Genre
+                            </button>
+
+                            <select class="dropdown-menu" aria-labelledby="dropdownMenuButton" name = "genre" value="reqest.GET.genre">
+                              <option class="dropdown-item"  id="cardDropItem" value="" >Select from below</option>
+                              <option class="dropdown-item"  id="cardDropItem" value="soft" >Soft</option>
+                              <option class="dropdown-item"  id="cardDropItem" value="classic">Classic</option>
+                              <option class="dropdown-item"  id="cardDropItem" value="rock" >Rock</option>
+                            </select>
+
+                          </div>
+                        </div>
+                      </div>
+                      <!--Row-5 for submit -->
+                      <div class="form-row">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-5">
+                          <button type="submit" class="btn btn-primary btn-sm btn-block" id="cardSubmitButton">Submit</button>
+                        </div>
+                      </div>
+                 </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- row-2 new and notable -->
+        <div class="row" id="npRow">
+          <div class="col">
+            <p id="nppTag"><b>New & Notable</b></p>
+          </div>
+        </div>
+        <div class="row" id="npIframe">
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+        </div>
+        <!-- row-3 popular song -->
+        <div class="row" id="npRow">
+          <div class="col">
+            <p id="nppTag"><b>Popular Songs</b></p>
+          </div>
+        </div>
+        <div class="row" id="npIframe">
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4"><p style="margin-top: 10px;"></p>
+            <div class="iiframe">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D0ReqrRuWDI?rel=0" allowfullscreen></iframe>
+              </div>
+              <p id="npp2Tag"><b>CHIRKUTT | MOREY JAABO | Lyrics Video</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4" id="footerRow">
+            <div id="footerRow1">
+              <p style="color: white;"><b>Like Us</b></p>
+              <img src="img/fa.png" alt="" height="30px" width="30px">
+              <img src="img/in.png" alt="" height="30px" width="30px" style="margin-left: 10px;">
+            </div>
+          </div>
+          <div class="col-4" id="footerRow">
+            <p id="footerRow2"style><b>Copyright&copy2018</b></p>
+          </div>
+          <div class="col-4" id="gpt">
+            <div class="" style="padding: 5px;">
+              <p id="pfooter"><b>Give Us Feedback</b></p>
+              <p id="pfooter"><b>Privacy Policy</b></p>
+              <p id="pfooter"><b>Terms</b></p>
+            </div>
+
+          </div>
+        </div>
+        <!-- javascript for autoload modal -->
+        <script type="text/javascript">
+        $(window).on('load',function(){
+          $('#exampleModalCenter').modal('show');
+        });
+      </script>
+{%endblock%}
